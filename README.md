@@ -15,7 +15,7 @@ pipenv install
 flask run
 ```
 
-## Step3: available to other
+## Step3: available to other(PAN)
 ```cmd
 flask run --host 0.0.0.0
 ```
