@@ -1,4 +1,5 @@
 # url-shortner
+URL-shortener is a way to shorten long, complex URLs into much shorter, neater links, which can be easy to share.
 ## Step1: open pipenv
 ```cmd
 pipenv shell
