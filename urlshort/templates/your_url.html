@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+ {% block title %} URL_SHORTNER {% endblock %}
+{% block main %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title> your_code</title>
+
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='icon/site_icon.png')}}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/common.css')}}">
+
+</head>
+<body style="background-color:#161A30;">
+
+  <nav class="navbar" style="background-color:#191919;"/>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+  <img src="{{ url_for('static',filename='icon/site_icon.png')}}" width="30" height="30"/>
+        </a><b style="color:white;">Url-Shortner</b>
+      </div>
+  </nav>
+
+<div align="center" class="box">
+  <img src="{{ url_for('static',filename="icon/internet.png")}}" height=200px/>
+  <h1 style="color:white;"> URL </h1>
+  <input style="text-wrap: wrap;" type="label" value="{{site_prefix}}{{ code }}" id="url" readonly="readonly" />
+  <button class="btn btn-success mb-1" onclick="myFunction()">Copy</button>
+</div>
+
+
+  <script>
+  function myFunction() {
+    // Get the text field
+    var copyText = document.getElementById("url");
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value)
+    .then(() => {
+        alert("Copied the text: " + copyText.value);
+      })
+      .catch(() => {
+        alert("something went wrong");
+      });
+
+  }
+
+  </script>
+</body>
+</html>
+{% endblock %}

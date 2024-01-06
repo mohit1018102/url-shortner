@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+ {% block title %} URL_SHORTNER {% endblock %}
+{% block main %}
+
+<head>
+  <title>URL_SHORTNER</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='icon/site_icon.png')}}"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}"/>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/common.css')}}"/>
+  <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+
+
+</head>
+
+
+
+
+<!-- jinja to interate through all messages -->
+{% for message in get_flashed_messages() %}
+<div class="alert message">
+  {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span style="margin-right:0px;" class="closebtn" aria-hidden="true" onclick="this.parentElement.parentElement.style.display='none';">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+
+
+
+<div class="container-fluid form_css">
+
+  <div class="row">
+    <nav class="navbar header" style="background-color:#191919;"/>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+    <img src="{{ url_for('static',filename='icon/site_icon.png')}}" width="30" height="30"/>
+    <b style="color:white;">Url-Shortner</b>
+          </a>
+          <b><a href="{{ url_for('urlshort.session_api')}}" style="color:white;">API</a></b>
+        </div>
+    </nav>
+
+  </div>
+
+<div class="row body_content">
+
+<div class="col">
+<form  action="your-url" method="post" class="card border border-success">
+<h2 align="center" class="text-mute" style="padding:10px;">URL Shortner</h2>
+
+  <div class="form-group row">
+    <label for="url" class="col-sm-2 col-form-label">Website</label>
+    <div class="col-sm-10">
+      <input type="url" class="form-control" name="url" placeholder="Enter Website" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-sm-2 col-form-label">Code</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="code" placeholder="Enter Code" required>
+    </div>
+  </div>
+
+  <button type="Submit" class="btn btn-danger mb-2"> Generate </button>
+
+</form>
+</div>
+
+
+<div class="col">
+<form  enctype="multipart/form-data" action="your-url" method="post" class="card border border-success">
+<h2 align="center" class="text-mute" style="padding:10px;">File</h2>
+  <div class="form-group row">
+    <label for="file" class="col-sm-2 col-form-label">File</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" name="file"  accept="image/png, image/jpeg" size="1"  required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="text" class="col-sm-2 col-form-label">Code</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="code" placeholder="Enter Code" required>
+    </div>
+  </div>
+  <button type="Submit" class="btn btn-success mb-2"> Generate </button>
+</form>
+</div>
+</div>
+</div>
+
+
+<div class="container-fluid cookies_css">
+  <div class="row">
+  <p class="codes" align="center">  << Short Codes >>   </p>
+  </div>
+  <div class="row">
+    <div class="col scroll-bar">
+
+ {% if codes %}
+
+<u1>
+  {% for code in codes %}
+  <a href="{{ url_for('urlshort.redirect_to_url',code=code) }}" style="color:white;">
+  <li>{{code}}</li>
+  </a>
+  {% endfor %}
+</ul>
+{% endif %}
+</div>
+<div class="col" >
+  <p align="center"><img src="{{ url_for('static',filename='icon/bee.png')}}" width="250px" height="250px" /></p>
+</div>
+</div>
+</body>
+</html>
+
+{% endblock %}

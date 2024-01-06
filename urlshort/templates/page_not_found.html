@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> page_not_found</title>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='icon/site_icon.png')}}"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/common.css')}}">
+  <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js')}}"></script>
+
+</head>
+<body style="background-color:#161A30;">
+
+  <p align="center">
+  <img src="{{ url_for('static',filename='icon/not-found.png')}}" width="300px" height="300px" /><br>
+  <a href="{{ url_for('urlshort.home') }}">   <img src="{{ url_for('static',filename='icon/home.png')}}" width="50px" height="50px" /><br></a></p>
+</body>
+</html>

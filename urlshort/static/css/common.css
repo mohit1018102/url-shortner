@@ -1,0 +1,89 @@
+form{
+  padding-right:30px;
+  padding-left:30px;
+  margin:20px;
+  background-color:LightGray;
+}
+
+body{
+  background-color:#ECE3CE;
+}
+
+
+.form_css{
+  background-color:#161A30;
+}
+
+.cookies_css{
+  background-color:#31304D; color:white;
+}
+
+.h2_css{
+margin-left: 10px;
+}
+
+
+.box
+{
+  border-radius: 1px 1px 1px 1px;
+  border-color: white;
+  border-radius: 20px;
+  border-style: solid;
+  margin-left:10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header{
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  width:100%;
+  z-index:999;
+}
+
+.message{
+  overflow: hidden;
+  position: fixed;
+  width:100%;
+  z-index:1000;
+  background-color: tomato;
+  color: black;
+  margin-top: 50px;
+}
+
+.body_content{
+  margin-top: 50px;
+}
+
+.scroll-bar{
+  width:auto;
+  height: 250px;
+  overflow-y: scroll;
+  border: 2px white solid;
+  background-color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.img_align{
+  align: center;
+}
+
+.codes{
+  border-color:white;
+  border-style: solid;
+  width:100%;
+  font-size: 20px;
+  font-family: monospace;
+  margin-right: 30%;
+  margin-left: 30%;
+  margin-top: 2px;
+  background-color: green;
+  border-radius: 10px;
+}
+.codes:hover{
+  background-color: red;
+  border-color:yellow;
+}
