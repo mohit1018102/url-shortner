@@ -3,12 +3,12 @@ import json
 import os.path
 from werkzeug.utils import secure_filename
 
-ip="http://192.168.0.109:5000/"
+ip="http://127.0.0.1:5000/"
 bp=Blueprint('urlshort',__name__)
 
 @bp.route('/') #  home page
 def home():
-    return render_template("home.html",codes=session.keys())
+    return render_template("home.html",codes=session.keys(),ip=ip)
 
 
 
@@ -23,7 +23,7 @@ def your_url():
 
         # check if key exits
         if request.form['code'] in urls.keys():
-            # send message to next page for printing Alters
+            # send message to next page for printing Alerts
             flash(f'{request.form['code']} short name has already been taken, please select another name!!')
 
             return redirect(url_for('urlshort.home'))
@@ -41,7 +41,7 @@ def your_url():
 
         with open('urls.json','w') as url_files:
             json.dump(urls,url_files)
-            session[ip+request.form['code']] = True
+            session[request.form['code']] = True
         return render_template("your_url.html",code=request.form['code'],site_prefix=ip)
     else:
         #return render_template("your_url.html",code=request.args['code']) for get
@@ -79,3 +79,6 @@ def session_api():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+

@@ -104,7 +104,7 @@
 <u1>
   {% for code in codes %}
   <a href="{{ url_for('urlshort.redirect_to_url',code=code) }}" style="color:white;">
-  <li>{{code}}</li>
+  <li>{{ip}}{{code}}</li>
   </a>
   {% endfor %}
 </ul>
